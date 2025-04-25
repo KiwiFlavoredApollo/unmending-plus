@@ -1,0 +1,41 @@
+{
+	"schemaVersion": 1,
+	"id": "unmendingplus",
+	"version": "${version}",
+	"name": "Unmending Plus",
+	"description": "Rebalanced Mending Enchantment",
+	"authors": [
+		"KiwiFlavoredApollo"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "All Rights Reserved",
+	"icon": "assets/unmendingplus/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"kiwiapollo.unmendingplus.UnmendingPlus"
+		],
+		"client": [
+			"kiwiapollo.unmendingplus.UnmendingPlusClient"
+		]
+	},
+	"mixins": [
+		"unmendingplus.mixins.json",
+		{
+			"config": "unmendingplus.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.15.7",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
