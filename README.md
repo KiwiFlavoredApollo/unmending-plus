@@ -1,6 +1,6 @@
 # README
 
-Unmending Plus re-balances Mending Enchantment. In spite of its name, Unmending Plus is a minor addition to Txuritan's Unmending. Bug fix to be precise. Txuritan's Unmending (accidnetally) allows tools with Mending be repaired with XP Orbs. Unmending Plus tries to fix that.
+Unmending Plus re-balances Mending Enchantment. In spite of its name, Unmending Plus is a minor addition to Txuritan's Unmending. Bug fix to be precise. Txuritan's Unmending (accidentally) allows tools with Mending be repaired with XP Orbs. Unmending Plus tries to fix that.
 
 Mending is great but Minecraft become boring once you obtain the best gears that never break. In order to "Make Minecraft Great Again", Unmending Plus does the following: 
 
