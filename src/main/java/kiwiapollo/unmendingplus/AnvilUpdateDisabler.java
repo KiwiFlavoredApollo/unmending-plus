@@ -54,9 +54,6 @@ public class AnvilUpdateDisabler implements AnvilUpdateEvent.AnvilUpdateCallback
         EnchantmentHelper.set(enchantmentsOutput, out);
 
         out.setRepairCost(0);
-        if (out.isDamageable()) {
-            out.setDamage(0);
-        }
 
         event.setOutput(out);
         if (event.getCost() == 0) {
@@ -64,6 +61,5 @@ public class AnvilUpdateDisabler implements AnvilUpdateEvent.AnvilUpdateCallback
         }
 
         return ActionResult.CONSUME;
-
     }
 }
