@@ -65,6 +65,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
     private void resetRepairCost(ItemStack instance, int repairCost) {
         if (!isApplyingMendingBookToItem(this.input)) {
             instance.setRepairCost(repairCost);
+            return;
         }
 
         instance.setRepairCost(0);
@@ -80,6 +81,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
     private void removeMending(Map<Enchantment, Integer> enchantments, ItemStack stack) {
         if (!isApplyingMendingBookToItem(this.input)) {
             EnchantmentHelper.set(enchantments, stack);
+            return;
         }
 
         enchantments.remove(Enchantments.MENDING);
