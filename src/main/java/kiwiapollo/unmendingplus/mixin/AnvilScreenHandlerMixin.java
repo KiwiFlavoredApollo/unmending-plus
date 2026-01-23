@@ -48,7 +48,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
             )
     )
     private int getLevelCost(Property instance) {
-        if (!isApplyingMendingBookToItem(this.input)) {
+        if (!isApplyingMendingEnchantedBookToDamageableItem(this.input)) {
             return instance.get();
         }
 
@@ -63,7 +63,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
             )
     )
     private void resetRepairCost(ItemStack instance, int repairCost) {
-        if (!isApplyingMendingBookToItem(this.input)) {
+        if (!isApplyingMendingEnchantedBookToDamageableItem(this.input)) {
             instance.setRepairCost(repairCost);
             return;
         }
@@ -79,7 +79,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
             )
     )
     private void removeMending(Map<Enchantment, Integer> enchantments, ItemStack stack) {
-        if (!isApplyingMendingBookToItem(this.input)) {
+        if (!isApplyingMendingEnchantedBookToDamageableItem(this.input)) {
             EnchantmentHelper.set(enchantments, stack);
             return;
         }
@@ -99,7 +99,7 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
             )
     )
     private void updateField(CallbackInfo ci) {
-        if (!isApplyingMendingBookToItem(this.input)) {
+        if (!isApplyingMendingEnchantedBookToDamageableItem(this.input)) {
             return;
         }
 
@@ -107,15 +107,23 @@ public abstract class AnvilScreenHandlerMixin extends ForgingScreenHandler {
         this.repairItemUsage = 0;
     }
 
-    private boolean isApplyingMendingBookToItem(Inventory input) {
-        return isDamageableItem(input.getStack(0)) && isMendingBook(input.getStack(1));
+    private boolean isApplyingMendingEnchantedBookToDamageableItem(Inventory input) {
+        return isDamageableItem(input.getStack(0)) && isMendingEnchantedBook(input.getStack(1));
     }
 
     private boolean isDamageableItem(ItemStack stack) {
         return stack.isDamageable();
     }
 
-    private boolean isMendingBook(ItemStack stack) {
-        return stack.isOf(Items.ENCHANTED_BOOK) && EnchantmentHelper.get(stack).containsKey(Enchantments.MENDING);
+    private boolean isMendingEnchantedBook(ItemStack stack) {
+        return isEnchantedBook(stack) && hasMendingEnchantment(stack);
+    }
+
+    private boolean isEnchantedBook(ItemStack stack) {
+        return stack.isOf(Items.ENCHANTED_BOOK);
+    }
+
+    private boolean hasMendingEnchantment(ItemStack stack) {
+        return EnchantmentHelper.get(stack).containsKey(Enchantments.MENDING);
     }
 }
